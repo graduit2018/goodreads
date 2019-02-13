@@ -13,7 +13,7 @@ services:
       - WEB_DOCUMENT_ROOT=/app/public
     labels:
       - traefik.enable=true
-      - traefik.backend=GoodReads
+      - traefik.backend=Goodreads
       - traefik.frontend.rule=Host:dev.goodreads.net
       - traefik.docker.network=proxy
       - traefik.port=80
