@@ -18,8 +18,6 @@ class CreateBooksTable extends Migration
             $table->text('title');
             $table->text('author');
             $table->unsignedBigInteger('isbn13');
-            $table->longText('description');
-            $table->timestamp('published_at');
             $table->timestamps();
         });
     }
