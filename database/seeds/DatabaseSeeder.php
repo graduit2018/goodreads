@@ -11,9 +11,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            UsersTableSeeder::class,
-            BooksTableSeeder::class,
+        $quan = factory(\App\User::class)->create([
+            'name' => 'Quan',
+            'email' => 'quan@example.com',
+            'password' => bcrypt('secret'),
         ]);
+        $users = factory(App\User::class, 10)->create();
+        $books = factory(App\Book::class, 50)->create();
+
+        $quan->books()->attach(
+            $books->random(rand(5, 10))->pluck('id')->toArray()
+        );
+        $users->each(function ($user) use ($books) {
+            $user->books()->attach(
+                $books->random(rand(5, 10))->pluck('id')->toArray()
+            );
+        });
     }
 }

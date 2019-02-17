@@ -5,26 +5,25 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Books</div>
+                <div class="card-header">Want to Read</div>
 
                 <div class="card-body">
                     <table class="table">
                         <tbody>
-                            @foreach ($books as $book)
+                            @foreach ($user->subscriptions as $subscription)
                                 <tr>
                                     <td>
-                                        <h5 class="font-weight-bold">{{ $book->title }}</h5>
-                                        <div>by {{ $book->author }}</div>
-                                        <div>ISBN13: {{ $book->isbn13 }}</div>
+                                        <h5 class="font-weight-bold">{{ $subscription->book->title }}</h5>
+                                        <div>by {{ $subscription->book->author }}</div>
+                                        <div>ISBN13: {{ $subscription->book->isbn13 }}</div>
                                         <br>
-                                        <a href="#" class="btn btn-success btn-sm">Want to Read</a>
                                         <a href="#" class="btn btn-primary btn-sm">Read</a>
+                                        <a href="#" class="btn btn-danger btn-sm float-right">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="float-right">{{ $books->links() }}</div>
                 </div>
             </div>
         </div>

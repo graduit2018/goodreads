@@ -13,4 +13,14 @@ class Book extends Model
         'description',
         'published_at',
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'subscriptions')->withTimestamps();
+    }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
+    }
 }

@@ -50,6 +50,9 @@
                             @endif
                         @else
                             <li class="nav-item">
+                                <a class="nav-link {{ Route::is('users.subscriptions.index') ? 'active' : '' }}" href="{{ route('users.subscriptions.index', ['id' => Auth::user()->id]) }}">Want to Read</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link {{ Route::is('books.index') ? 'active' : '' }}" href="{{ route('books.index') }}">Books</a>
                             </li>
                             <li class="nav-item dropdown">

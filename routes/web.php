@@ -12,10 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('books.index');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('books', 'BookController');
+
+Route::get('/users/{id}/subscriptions', 'UserSubscriptionsController@index')->name('users.subscriptions.index');
