@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('books', 'BookController');
-
-Route::get('/users/{id}/subscriptions', 'UserSubscriptionsController@index')->name('users.subscriptions.index');
+Route::middleware(['auth'])->group(function () {
+    Route::resource('books', 'BookController');
+    Route::get('/users/{id}/subscriptions', 'UserSubscriptionsController@index')->name('users.subscriptions.index');
+});
