@@ -22,5 +22,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/users/{id}/subscriptions', 'UserSubscriptionsController@index')->name('users.subscriptions.index');
     Route::post('/users/subscriptions', 'UserSubscriptionsController@store')->name('users.subscriptions.store');
     Route::delete('/users/subscriptions/{id}', 'UserSubscriptionsController@destroy')->name('users.subscriptions.destroy');
-    Route::delete('/users/subscriptions/{id}', 'UserSubscriptionsController@destroy2')->name('users.subscriptions.destroy2');
+    Route::delete('/users/subscriptions2/{id}', 'UserSubscriptionsController@destroy2')->name('users.subscriptions.destroy2');
 });
