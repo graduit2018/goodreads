@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Book;
+use App\Subscription;
 
 class UserSubscriptionsController extends Controller
 {
@@ -39,7 +42,14 @@ class UserSubscriptionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $book = Book::findOrFail($request->book_id);
+
+        $subscription = Subscription::create([
+            'user' => Auth::user(),
+            'book' => $book,
+        ]);
+
+        return $subscription;
     }
 
     /**
@@ -84,6 +94,10 @@ class UserSubscriptionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subscription = Auth::user()->subscriptions()->findOrFail($id);
+
+        $subscription->delete();
+
+        return response('', 204);
     }
 }

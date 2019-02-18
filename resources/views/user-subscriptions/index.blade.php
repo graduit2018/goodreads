@@ -13,12 +13,11 @@
                             @foreach ($user->subscriptions as $subscription)
                                 <tr>
                                     <td>
-                                        <h5 class="font-weight-bold">{{ $subscription->book->title }}</h5>
+                                        <h5 class="font-weight-bold"># {{ $subscription->book->id }} {{ $subscription->book->title }}</h5>
                                         <div>by {{ $subscription->book->author }}</div>
                                         <div>ISBN13: {{ $subscription->book->isbn13 }}</div>
                                         <br>
-                                        <a href="#" class="btn btn-primary btn-sm">Read</a>
-                                        <a href="#" class="btn btn-danger btn-sm float-right">Delete</a>
+                                        <want-to-read-button :data-subscription="{{ json_encode(Auth::user()->subscriptionTo($subscription->book)) }}" :book="{{ $subscription->book }}"></want-to-read-button>
                                     </td>
                                 </tr>
                             @endforeach

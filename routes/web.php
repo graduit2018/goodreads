@@ -20,4 +20,6 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::resource('books', 'BookController');
     Route::get('/users/{id}/subscriptions', 'UserSubscriptionsController@index')->name('users.subscriptions.index');
+    Route::post('/users/subscriptions', 'UserSubscriptionsController@store')->name('users.subscriptions.store');
+    Route::delete('/users/subscriptions/{id}', 'UserSubscriptionsController@destroy')->name('users.subscriptions.destroy');
 });

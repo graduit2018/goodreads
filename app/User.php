@@ -37,4 +37,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Subscription::class);
     }
+
+    public function subscriptionTo($book)
+    {
+        return $this->subscriptions()->where('book_id', $book->id)->first();
+    }
 }

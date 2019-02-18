@@ -9,6 +9,20 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+Promise.delay = function (time) {
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, time)
+    })
+}
+
+Promise.prototype.takeAtLeast = function (time) {
+    return new Promise((resolve, reject) => {
+        Promise.all([this, Promise.delay(time)]).then(([result]) => {
+            resolve(result)
+        }, reject)
+    })
+}
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -21,6 +35,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('want-to-read-button', require('./components/WantToReadButton.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
