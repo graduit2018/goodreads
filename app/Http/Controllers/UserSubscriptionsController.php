@@ -100,4 +100,13 @@ class UserSubscriptionsController extends Controller
 
         return response('', 204);
     }
+
+    public function destroy2($id)
+    {
+        $subscription = Auth::user()->subscriptions()->findOrFail($id);
+
+        $subscription->delete();
+
+        return redirect()->route('users.subscriptions.index', Auth::user()->id);
+    }
 }

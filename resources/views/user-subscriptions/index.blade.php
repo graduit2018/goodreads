@@ -17,7 +17,11 @@
                                         <div>by {{ $subscription->book->author }}</div>
                                         <div>ISBN13: {{ $subscription->book->isbn13 }}</div>
                                         <br>
-                                        <want-to-read-button :data-subscription="{{ json_encode(Auth::user()->subscriptionTo($subscription->book)) }}" :book="{{ $subscription->book }}"></want-to-read-button>
+                                        <form action="{{ route('users.subscriptions.destroy2', $subscription->id)}}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-sm btn-secondary">Don't Want to Read</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
