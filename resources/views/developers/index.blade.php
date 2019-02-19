@@ -9,9 +9,6 @@
             <div class="mb-4">
                 <passport-clients></passport-clients>
             </div>
-            <div class="mb-4">
-                <passport-authorized-clients></passport-authorized-clients>
-            </div>
             <!-- <br>
             <p class="h5 text-center">Create access tokens for quick testing</p>
             <br>

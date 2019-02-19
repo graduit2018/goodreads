@@ -24,4 +24,9 @@ class DeveloperController extends Controller
 
         return redirect('/');
     }
+
+    public function revoke(Request $request)
+    {
+        return view('developers.revoke');
+    }
 }

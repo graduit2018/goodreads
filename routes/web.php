@@ -26,4 +26,5 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/developers', 'DeveloperController@index')->name('developers.index');
     Route::get('/join-developers', 'DeveloperController@join')->name('developers.join');
+    Route::get('/users/revoke', 'DeveloperController@revoke')->name('developers.revoke');
 });

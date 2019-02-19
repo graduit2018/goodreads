@@ -59,6 +59,9 @@
                                 </li>
                             @endif
                             <li class="nav-item">
+                                <a class="nav-link {{ Route::is('developers.revoke') ? 'active' : '' }}" href="{{ route('developers.revoke') }}">Revoke Authorized Application</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link {{ Route::is('users.subscriptions.index') ? 'active' : '' }}" href="{{ route('users.subscriptions.index') }}">Want to Read</a>
                             </li>
                             <li class="nav-item">
