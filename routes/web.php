@@ -25,4 +25,5 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/users/subscriptions2/{id}', 'UserSubscriptionsController@destroy2')->name('users.subscriptions.destroy2');
 
     Route::get('/developers', 'DeveloperController@index')->name('developers.index');
+    Route::get('/join-developers', 'DeveloperController@join')->name('developers.join');
 });

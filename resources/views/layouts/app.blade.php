@@ -49,12 +49,15 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
-                                <a class="nav-link {{ Route::is('developers.index') ? 'active' : '' }}" href="{{ route('developers.index') }}">Apply for access APIs</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ Route::is('developers.index') ? 'active' : '' }}" href="{{ route('developers.index') }}">For Developers</a>
-                            </li>
+                            @if (Auth::user()->is_developer != 1)
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Route::is('developers.join') ? 'active' : '' }}" href="{{ route('developers.join') }}">Join Goodreads Developer</a>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Route::is('developers.index') ? 'active' : '' }}" href="{{ route('developers.index') }}">For Developers</a>
+                                </li>
+                            @endif
                             <li class="nav-item">
                                 <a class="nav-link {{ Route::is('users.subscriptions.index') ? 'active' : '' }}" href="{{ route('users.subscriptions.index') }}">Want to Read</a>
                             </li>
