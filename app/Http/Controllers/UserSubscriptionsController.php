@@ -15,9 +15,9 @@ class UserSubscriptionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        $user = User::with('subscriptions', 'subscriptions.book')->findOrFail($id);
+        $user = User::with('subscriptions', 'subscriptions.book')->findOrFail(Auth::user()->id);
 
         return view('user-subscriptions.index', [
             'user' => $user,
@@ -107,6 +107,6 @@ class UserSubscriptionsController extends Controller
 
         $subscription->delete();
 
-        return redirect()->route('users.subscriptions.index', Auth::user()->id);
+        return redirect()->route('users.subscriptions.index');
     }
 }
