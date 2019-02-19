@@ -27,5 +27,14 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Passport::routes();
+
+        Passport::tokensCan([
+            'get-isbn13' => 'Get ISBN',
+            'get-title' => 'Get titles',
+        ]);
+
+        Passport::setDefaultScope([
+            'get-isbn13',
+        ]);
     }
 }
