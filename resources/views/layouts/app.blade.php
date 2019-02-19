@@ -50,6 +50,12 @@
                             @endif
                         @else
                             <li class="nav-item">
+                                <a class="nav-link {{ Route::is('developers.index') ? 'active' : '' }}" href="{{ route('developers.index') }}">Apply for access APIs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Route::is('developers.index') ? 'active' : '' }}" href="{{ route('developers.index') }}">For Developers</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link {{ Route::is('users.subscriptions.index') ? 'active' : '' }}" href="{{ route('users.subscriptions.index', ['id' => Auth::user()->id]) }}">Want to Read</a>
                             </li>
                             <li class="nav-item">
