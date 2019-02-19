@@ -36,5 +36,9 @@ class AuthServiceProvider extends ServiceProvider
         Passport::setDefaultScope([
             'get-isbn13',
         ]);
+
+        Passport::tokensExpireIn(now()->addMinutes(5));
+
+        Passport::refreshTokensExpireIn(now()->addMinutes(10));
     }
 }
