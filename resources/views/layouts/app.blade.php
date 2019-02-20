@@ -51,21 +51,21 @@
                         @else
                             @if (Auth::user()->is_developer != 1)
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Route::is('developers.join') ? 'active' : '' }}" href="{{ route('developers.join') }}">Join Goodreads Developer</a>
+                                    <a class="nav-link {{ Route::is('developers.join') ? 'active' : '' }}" href="http://goodreads.net/join-developers">Join Goodreads Developer</a>
                                 </li>
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Route::is('developers.index') ? 'active' : '' }}" href="{{ route('developers.index') }}">For Developers</a>
+                                    <a class="nav-link" href="http://oauth.goodreads.net/developers">For Developers</a>
                                 </li>
                             @endif
                             <li class="nav-item">
-                                <a class="nav-link {{ Route::is('developers.revoke') ? 'active' : '' }}" href="{{ route('developers.revoke') }}">Revoke Authorized Application</a>
+                                <a class="nav-link" href="http://oauth.goodreads.net/users/revoke">Revoke Authorized Application</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ Route::is('users.subscriptions.index') ? 'active' : '' }}" href="{{ route('users.subscriptions.index') }}">Want to Read</a>
+                                <a class="nav-link" href="http://goodreads.net/users/subscriptions">Want to Read</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ Route::is('books.index') ? 'active' : '' }}" href="{{ route('books.index') }}">Books</a>
+                                <a class="nav-link" href="http://goodreads.net/books">Books</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
